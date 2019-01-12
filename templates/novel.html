@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书推荐</title>
+</head>
+<body>
+<h1>图书推荐</h1>
+<ul>
+    {%for key in novel_info%}
+    <p>
+        <a href=""> <img src="static/novel.images/1.jpg" alt=""></a>
+    </p>
+    <p>
+        <a href="" target="_blank">{{novel_info[key][1]}}</a>
+    </p>
+    <P>
+       作者：{{novel_info[key][2]}} &nbsp;&nbsp;出版社:{{novel_info[key][3]}} &nbsp;&nbsp;出版时间:{{novel_info[key][4]}} &nbsp;&nbsp;
+    </P>
+    <P>
+        <h3>
+    <font color="red" >
+            ${{novel_info[key][5]}}
+        </font>
+
+</h3>
+    </P>
+    <p>
+        {{novel_info[key][6]}}
+    </p>
+
+    {% endfor %}
+</ul>
+
+</body>
+</html>
+
+
+
+
+
+                         {% for item in like %}
+                             {% for key in item %}
+						<tr height="140"><td width="140"align="center">
+							<a href="{{url_for('bookdetail',kind=item[key][1], index=key,)}}">
+							<img src="{{'../'+item[key][0]}}" width="225"/>
+							</a>
+							<br />
+							<a href="{{url_for('bookdetail',kind=item[key][1], index=key,)}}">{{like[key][3]}}</a>
+						</td>
+						</tr>
+						    {% endfor %}
+                        {% endfor %}

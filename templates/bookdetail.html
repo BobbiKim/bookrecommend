@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="0" cellspacing="" cellpadding=""align="center">
+
+			<tr height="30px">
+				<td rowspan="4"width="250px"><img src="{{'../'+showbook[index][0]}}"width="250px"/></td>
+				<td width="750px"><font color="mediumblue" size="5" face="黑体">{{showbook[index][3]}}</font></td>
+			</tr>
+			<tr height="23px"><td>{{showbook[index][4]}}&nbsp;&nbsp;出版社:{{showbook[index][5]}}&nbsp;&nbsp;出版时间:{{showbook[index][6]}}</td></tr>
+			<tr height="23px"><td><font color="red" >
+            ￥{{showbook[index][7]}}
+        </font></td></tr>
+			<tr height="120px"><td valign="top">{{showbook[index][8]}}</td></tr>
+			<tr><td colspan="2"><hr /></td></tr>
+			<tr>
+				<td valign="top"align="center">
+					<table border="0" cellspacing="20px" cellpadding=""frame="void">
+						<tr><th style="border-radius: 7px;"bgcolor="greenyellow"><font size="4">浏览本书的人也看</font></th></tr>
+                        {% for item in like %}
+						    {% for key in item %}
+						<tr height="140"><td width="140"align="center">
+							<a href="{{url_for('bookdetail',kind=item[key][1], index=key,)}}">
+							<img src="{{'../'+item[key][0]}}" width="225"/>
+							</a>
+							<br />
+							<a href="{{url_for('bookdetail',kind=item[key][1], index=key,)}}">{{item[key][3]}}</a>
+						</td>
+						</tr>
+						    {% endfor %}
+                        {% endfor %}
+					</table>
+				</td>
+				<td align="center">
+					<table border="0" cellspacing="" cellpadding="">
+						<tr><th colspan="5"style="border-radius: 10px;"align="left"bgcolor="lightgray"><font size="4">&nbsp;猜你喜欢&gt;&gt;</font></th></tr>
+						<tr>
+							<ul>
+								{% for key in novel_info %}
+								<td width="170"align="center">
+									<a href="{{url_for('bookdetail',kind=novel_info[key][1], index=key,)}}">
+										<img src="{{'../'+novel_info[key][0]}}" width="200"/>
+									</a>
+									<br />
+									<a href="{{url_for('bookdetail',kind=novel_info[key][1], index=key,)}}">
+										{{novel_info[key][3]}}
+									</a>
+								</td>
+								{% endfor %}
+							</ul>
+						</tr>
+
+						<td colspan="5"><hr /></td></tr>
+
+						</tr>
+						<tr><th colspan="5"style="border-radius: 10px;"bgcolor="lightgrey"><font size="4">图书详情</font></th></tr>
+
+						<tr><td colspan="5" >
+							<div style="margin-left: 175px">
+								<img src="{{showbook[index][2]}}" width="700" />
+							</div>
+							</td></tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

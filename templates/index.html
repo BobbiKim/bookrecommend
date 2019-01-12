@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			a{
+				text-decoration: none;
+				color: antiquewhite;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body background="../static/mainpage.jpg" style="background-size: cover;">
+		<br /><br /><br /><br /><br /><br />
+		<table style="margin-left: 55%;"style="margin-top: 20%;" border="0" cellspacing="12" cellpadding="">
+			<tr><th><nobr><font face="黑体"color="gold" size="7">Group5 Books</font></nobr></th></tr>
+			<tr><th><nobr><font face="黑体"color="gold" size="7">Recommend System</font></nobr></th></tr>
+			<tr><td></td></tr>
+			<tr><td><font color="lightskyblue"size="6">图书分类:</font></td></tr>
+			<tr><td><a href="{{url_for('bookclass',index='novel')}}"><li>小说文学</li></a></td></tr>
+			<tr><td><a href="{{url_for('bookclass',index='technology')}}"><li>科技前沿</li></a></td></tr>
+			<tr><td><a href="{{url_for('bookclass',index='success')}}"><li>成功励志</li></a></td></tr>
+			<tr><td><a href="{{url_for('bookclass',index='economy')}}"><li>经济管理</li></a></td></tr>
+		</table>
+
+	</body>
+</html>

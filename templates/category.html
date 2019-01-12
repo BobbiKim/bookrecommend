@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			a{
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="0"background="../static/leaves.gif" align="center">
+			<tr>
+				<th><img src="../static/logo00.gif"width="200"/></th>
+				<th><font size="7"color="firebrick">&nbsp;Group5 Books Recommend System&nbsp;</font></th>
+			</tr>
+			<tr>
+				<td colspan="2"bgcolor="gainsboro">
+					图书分类:
+					<a href="{{url_for('bookclass',index='novel')}}">小说文学</a>
+					<a href="{{url_for('bookclass',index='tecnology')}}">技术前沿</a>
+					<a href="{{url_for('bookclass',index='succeed')}}">成功励志</a>
+					<a href="{{url_for('bookclass',index='economy')}}">经济管理</a>
+				</td>
+			</tr>
+		</table>
+
+
+		<hr />
+		<nobr>
+			<center>
+				<img src="../static/XiaoShuoWenYi.jpg"height="250"/>
+				<marquee behavior="scroll" height="250" width="450" direction="up" scrollamount="7"
+						onmouseover="this.stop()" onmouseout="this.start()">
+						<a href="{{url_for('bookclass',index='tecnology')}}"><img src="../static/KeJi_Roll.jpg"width="450"/></a><br />
+						<a href="{{url_for('bookclass',index='success')}}"><img src="../static/LiZhi_Roll.jpg"width="450"/></a><br />
+						<a href="{{url_for('bookclass',index='economy')}}"><img src="../static/GuanLi_Roll.jpg"width="450"/></a><br />
+						<a href="{{url_for('bookclass',index='novel')}}"><img src="../static/XiaoShuo_Roll.jpg"width="450"/></a>
+				</marquee>
+			</center>
+		</nobr>
+    <ul>
+    {%for key in novel_info%}
+        <table>
+            <tr>
+                <td >
+                    <a href="{{url_for('bookdetail',kind=novel_info[key][1], index=key,)}}" target="_blank"> <img src="{{novel_info[key][0]}}"  width="200" alt=""></a>
+                </td>
+                <td width="600">
+                     <p>
+        <a href="{{url_for('bookdetail',kind=novel_info[key][1], index=key,)}}" target="_blank">{{novel_info[key][3]}}</a>
+    </p>
+    <P>
+       作者：{{novel_info[key][4]}} &nbsp;&nbsp;出版社:{{novel_info[key][5]}} &nbsp;&nbsp;出版时间:{{novel_info[key][6]}} &nbsp;&nbsp;
+    </P>
+    <P>
+        <h3>
+    <font color="red" >
+            ${{novel_info[key][7]}}
+        </font>
+
+</h3>
+    </P>
+                </td>
+            </tr>
+            <br>
+            <br>
+            <br>
+        </table>
+
+    {% endfor %}
+</ul>
+	</body>
+</html>
